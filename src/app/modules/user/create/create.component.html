@@ -1,0 +1,32 @@
+<h3>Create User</h3>
+
+<form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="inputName">Email</label>
+        <input name="email" formControlName="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+        <label for="inputName">Username</label>
+        <input name="username" formControlName="username" class="form-control" id="username">
+    </div>
+    <div class="form-group">
+        <label for="inputName">Password</label>
+        <input name="password" formControlName="password" class="form-control" id="password">
+    </div>
+    <div class="form-group">
+        <label for="inputName">Roles</label>
+        <div formArrayName="roles" *ngFor="let role of addUserForm.controls.roles.controls; let i = index">
+          <input type="checkbox" [formControlName]="i" [value]="roles">{{ roles[i].name }}
+        </div>
+  </div>
+    <div class="form-group">
+        <label for="inputName">Country</label>
+        <select formControlName="country" class="form-control">
+          <option *ngFor="let country of countries" [ngValue]="country">
+            {{ country.name }}
+          </option>
+        </select>
+  </div>
+    <button class="btn btn-primary" [disabled]="addUserForm.invalid">Create</button> |
+    <a routerLink="/users">Back</a>
+</form>

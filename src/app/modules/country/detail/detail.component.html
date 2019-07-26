@@ -1,0 +1,7 @@
+<h3>Countries Details</h3>
+<div><strong>Id: </strong>{{ country.id }}</div>
+  <div><strong>Name: </strong>{{ country.name}}</div>
+<hr />
+<a [routerLink]="['/countries/update/', country.id]">Edit</a> |
+<a [routerLink]="" (click)="onDeleteUser(country.id)">Delete</a> |
+<a routerLink="/countries">Back</a>

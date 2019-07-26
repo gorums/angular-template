@@ -1,0 +1,7 @@
+<h3>Roles Details</h3>
+<div><strong>Id: </strong>{{ role.id }}</div>
+  <div><strong>Name: </strong>{{ role.name}}</div>
+<hr />
+<a [routerLink]="['/roles/update/', role.id]">Edit</a> |
+<a [routerLink]="" (click)="onDeleteUser(role.id)">Delete</a> |
+<a routerLink="/roles">Back</a>

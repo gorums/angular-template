@@ -1,0 +1,33 @@
+<h3>Users</h3>
+
+<a routerLink="/users/create">Create new User</a>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Password</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Roles</th>
+                  <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.email}}</td>
+                <td>{{ user.username}}</td>
+                <td>{{ user.password}}</td>
+                <td>{{ user.country.name}}</td>
+                <td>{{ user.roles | joinComma:'name'}}</td>
+                <td>
+                    <a [routerLink]="[user.id]">Details</a> |
+                    <a [routerLink]="['/users/update/', user.id]">Edit</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

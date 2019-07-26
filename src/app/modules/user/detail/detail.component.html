@@ -1,0 +1,11 @@
+<h3>Users Details</h3>
+<div><strong>Id: </strong>{{ user.id }}</div>
+  <div><strong>Email: </strong>{{ user.email}}</div>
+  <div><strong>Username: </strong>{{ user.username}}</div>
+  <div><strong>Password: </strong>{{ user.password}}</div>
+  <div><strong>Country: </strong>{{ user.country.name}}</div>
+  <div><strong>Roles: </strong>{{ user.roles | joinComma:'name'}}</div>
+<hr />
+<a [routerLink]="['/users/update/', user.id]">Edit</a> |
+<a [routerLink]="" (click)="onDeleteUser(user.id)">Delete</a> |
+<a routerLink="/users">Back</a>

@@ -1,0 +1,36 @@
+<h3>Update User</h3>
+
+<form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+    <div class="hidden">
+        <input type="hidden" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
+    </div>
+    <div class="form-group">
+        <label for="inputName">Email</label>
+        <input name="email" formControlName="email" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+        <label for="inputName">Username</label>
+        <input name="username" formControlName="username" class="form-control" id="username">
+    </div>
+    <div class="form-group">
+        <label for="inputName">Password</label>
+        <input name="password" formControlName="password" class="form-control" id="password">
+    </div>
+    <div class="form-group">
+        <label for="inputName">Roles</label>
+        <div formArrayName="roles" *ngFor="let role of editUserForm.controls.roles.controls; let i = index">
+          <input type="checkbox" [formControlName]="i" [value]="roles">{{ roles[i].name }}
+        </div>
+  </div>
+    <div class="form-group">
+        <label for="inputName">Country</label>
+        <select [compareWith]="compareCountries" formControlName="country" class="form-control">
+          <option *ngFor="let country of countries" [ngValue]="country">
+            {{ country.name }}
+          </option>
+        </select>
+  </div>
+
+    <button class="btn btn-primary" [disabled]="editUserForm.invalid">Update</button> |
+    <a routerLink="/users">Back</a>
+</form>

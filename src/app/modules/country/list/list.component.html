@@ -1,0 +1,25 @@
+<h3>Countries</h3>
+
+<a routerLink="/countries/create">Create new Country</a>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let country of countries">
+                <th scope="row">{{ country.id }}</th>
+                <td>{{ country.name}}</td>
+                <td>
+                    <a [routerLink]="[country.id]">Details</a> |
+                    <a [routerLink]="['/countries/update/', country.id]">Edit</a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
